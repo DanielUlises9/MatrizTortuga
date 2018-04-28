@@ -6,22 +6,27 @@ using System.Threading.Tasks;
 
 namespace MatrizTortuga
 {
+
+    //Columnas,Renglones
     class Tortuga
     {
-        private static char[,] piso;
-        private char _tortuga;
-        private static int length;
+        private char[,] piso;
+        private char _tortuga,esenario,cubo,tinta;
+        private int length;
         private bool dibujar;
         private int girar;
+        private int Jtorti, Itorti;
 
 
         public Tortuga()
         {
             piso = new char[20, 20];
-            _tortuga = '@';
+            Jtorti = Itorti = 9;
+            _tortuga = '@'; esenario = '='; cubo = '/'; tinta = '*';
             length = piso.GetLength(0);
+            Girar = 0;
+            dibujar = false;
             DibujarEsenario();
-            girar = 2;
         }
 
         private void DibujarEsenario()
@@ -29,137 +34,202 @@ namespace MatrizTortuga
             for (int i = 0; i < length; i++)
             {
                 for (int j = 0; j < length; j++)
-                    piso[j, i] = '=';
+                    piso[j, i] = esenario;
             }
 
             for (int i = 4; i < 16; i++)
             {
-                piso[4, i] = '/';
-                piso[i, 15] = '/';
-                piso[15, i] = '/';
-                piso[i, 4] = '/';
+                piso[4, i] = cubo;
+                piso[i, 15] = cubo;
+                piso[15, i] = cubo;
+                piso[i, 4] = cubo;
             }
-            piso[9, 9] = _tortuga;
+            piso[Itorti, Jtorti] = _tortuga;
+       
         }
 
         public void caminar(int cuantosPasos)
         {
-            BuscarPocision(out int _Jn,out int _In);
-            int temp = 0;
+            //BuscarPocision(out int Jtorti,out int Itorti);
+            int temp, temp2,mientras;
+            mientras=temp = temp2 = 0;
             if(dibujar)
             {
-                switch (girar)
+                switch (Girar)
                 {
                     case 0:
                         {
-                            temp = _Jn - cuantosPasos;
+                            piso[Itorti, Jtorti] = esenario;
+                            temp = Jtorti - cuantosPasos;
                             temp = controltemp(temp);
-                            piso[temp, _In] = '@';   
+                            Jtorti = temp;
+                            piso[Itorti, temp] = _tortuga;   
                                 break;
                         }
                     case 1:
                         {
-                            temp = _In + cuantosPasos;
+                            piso[Itorti, Jtorti] = esenario;
+                            temp = Itorti + cuantosPasos;
                             temp = controltemp(temp);
-                            piso[_Jn, temp] = '@';
+                            Itorti = temp;
+                            piso[temp, Jtorti] = _tortuga;
                             break;
                         }
                     case 2:
                         {
-                            temp = _Jn + cuantosPasos;
+                            piso[Itorti, Jtorti] = esenario;
+                            temp = Jtorti + cuantosPasos;
                             temp = controltemp(temp);
-                            piso[temp, _In] = '@';
+                            Jtorti = temp;
+                            piso[Itorti, temp] = _tortuga;
                             break;
                         }
                     case 3:
                         {
-                            temp = _In - cuantosPasos;
+                            piso[Itorti, Jtorti] = esenario;
+                            temp = Itorti - cuantosPasos;
                             temp = controltemp(temp);
-                            piso[_Jn, temp] = '@';
+                            Itorti = temp;
+                            piso[temp, Jtorti] = _tortuga;
                             break;
                         }
                 }
             }
             else
             {
-               
-                switch (girar)
+                switch (Girar)
                 {
                     case 0:
                         {
-                            temp = _Jn - cuantosPasos;
-                            temp = controltemp(temp);
-
-                            for (int j = _Jn; j > temp; j--)
+                            mientras = Jtorti;
+                            temp = Jtorti - cuantosPasos;
+                            temp = AsteristicoControl(temp);
+                            while (mientras > temp)
                             {
-                                piso[j, _In] ='*';
+                                piso[Itorti, mientras] = tinta;
+                                mientras--;
                             }
-                            piso[temp, _In] = '@';
+                            temp2 = Jtorti - cuantosPasos;
+                            Jtorti = temp;
+                            if (temp2 <0)
+                            {
+                                temp2 = controltemp(temp2) +1;
+                                Jtorti = temp2-1;
+                                piso[Itorti,Jtorti] = _tortuga;
+                                while (temp2<20)
+                                {
+                                    piso[Itorti, temp2] = tinta;
+                                    temp2++;
+                                }
+                            }else
+                                piso[Itorti, mientras] = _tortuga;
                             break;
                         }
                     case 1:
                         {
-                            temp = _In + cuantosPasos;
-                            temp = controltemp(temp);
-
-                            for (int i = _In; i < temp; i++)
+                            mientras = Itorti;
+                            temp = Itorti + cuantosPasos;
+                            temp = AsteristicoControl(temp);
+                            while(mientras<=temp)
                             {
-                                piso[_Jn,i] = '*';
+                                piso[mientras, Jtorti] = tinta;
+                                mientras++;
                             }
-                            piso[_Jn, temp] = '@';
+                            mientras = 0;
+                            temp2 = Itorti + cuantosPasos;
+                            Itorti = temp;
+                            if(temp2>19)
+                            {
+                                temp2 = controltemp(temp2);
+                                Itorti = temp2;
+                                while (mientras <= temp2)
+                                {
+                                    piso[mientras, Jtorti] = tinta;
+                                    mientras++;
+                                }
+                            }
+                            piso[temp2, Jtorti] = _tortuga;
                             break;
                         }
                     case 2:
                         {
-                            temp = _Jn + cuantosPasos;
-                            temp = controltemp(temp);
-
-                            for (int j = _Jn; j < temp; j++)
+                            mientras = Jtorti;
+                            temp = Jtorti + cuantosPasos;
+                            temp = AsteristicoControl(temp);
+                            while (mientras < temp)
                             {
-                                piso[j,_In] = '*';
+                                piso[Itorti, mientras] = tinta;
+                                mientras++;
                             }
-                            piso[temp, _In] = '@';
+                            mientras = 0;
+                            temp2 = Itorti + cuantosPasos;
+                            Jtorti = temp;
+                            if (temp2 > 19)
+                            {
+                                temp2 = controltemp(temp2);
+                                Jtorti = temp2;
+                                while (mientras <= temp2)
+                                {
+                                    piso[Itorti, mientras] = tinta;
+                                    mientras++;
+                                }
+                            }
+                            piso[Itorti,temp2] = _tortuga;
                             break;
                         }
                     case 3:
                         {
-                            temp = _In - cuantosPasos;
-                            temp = controltemp(temp);
-
-                            for (int i= _In; i > temp; i--)
+                            mientras = Itorti;
+                            temp = Itorti - cuantosPasos;
+                            temp = AsteristicoControl(temp);
+                            while (mientras > temp)
                             {
-                                piso[_Jn, i] = '*';
+                                piso[mientras,Jtorti] = tinta;
+                                mientras--;
                             }
-                            piso[_Jn, temp] = '@';
+                            temp2 = Itorti - cuantosPasos;
+                            Itorti = temp;
+                            if (temp2 < 0)
+                            {
+                                temp2 = controltemp(temp2) + 1;
+                                Itorti = temp2 - 1;
+                                piso[Itorti, Jtorti] = _tortuga;
+                                while (temp2 < 20)
+                                {
+                                    piso[temp2,Jtorti] = tinta;
+                                    temp2++;
+                                }
+                            }
+                            else
+                                piso[mientras,Jtorti] = _tortuga;
                             break;
                         }
                 }
             }
         }
 
-    private static void BuscarPocision(out int _j,out int _i)
-        {
-            /*int j=0, i=0;
-            while (piso[j, i] != '@')
+        /*private static void BuscarPocision(out int _j,out int _i)
             {
-                j++; i++;
-            }
-            */
-            _j = 0; _i = 0;
-            for (_i = 0; _i < length; _i++)
-            {
-                for (_j = 0; _j < length; _j++)
+                int j=0, i=0;
+                while (piso[j, i] != _tortuga)
                 {
-                    if (piso[_j, _i] == '@')
-                    {
-                        piso[_j, _i] = '=';
-                        break;
-                    }
+                    j++; i++;
                 }
 
-            }
-
-        }
+                _j = 0; _i = 0;
+                for (_i = 0; _i < length; _i++)
+                {
+                    for (_j = 0; _j < length; _j++)
+                    {
+                        if (piso[_j, _i] == )
+                        {
+                            piso[_j, _i] = '=';
+                            goto MYGOTO;
+                        }
+                    }
+                }
+                MYGOTO:;
+    }*/
 
         public override string ToString()
         {
@@ -175,15 +245,17 @@ namespace MatrizTortuga
             
         }
 
-        public void GirarDerecha() { girar--; control(); }
-        public void GirarIzquierda(){ girar++; control(); }
-        private void control() { if (girar > 3) girar = 0; else if (girar < 0) girar = 3; }
+        public void GirarDerecha() { Girar--; control(); }
+        public void GirarIzquierda(){ Girar++; control(); }
+        private void control() { if (Girar > 3) Girar = 0; else if (Girar < 0) Girar = 3; }
 
 
-        private int controltemp(int temp) { if (temp > 19) temp = 1; else if (temp < 0) temp = 19; else return temp; return temp; }
+        private int controltemp(int temp) { if (temp > 19) temp = temp -20; else if (temp < 0) { temp = 20 +temp; } else return temp; return temp; }
+        private int AsteristicoControl(int temp) { if (temp > 19) return temp = 19; else if (temp < 0) return temp = 0; return temp; }
 
 
         public bool _Dibujar { get => dibujar; set => dibujar = value; }
+        public int Girar { get => girar; set => girar = value; }
 
 
         /*static void GetTwoNumbersA(out int number1, out int number2)

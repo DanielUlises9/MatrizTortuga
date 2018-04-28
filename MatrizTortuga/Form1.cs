@@ -20,85 +20,81 @@ namespace MatrizTortuga
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
-            lblMatriz.Text = torti.ToString(); 
+            lblMatriz.Text = torti.ToString();
         }
 
         private void txtEntrada_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
-            lblMatriz.Text = Convert.ToString( e.KeyChar);
+
+            lblMatriz.Text = Convert.ToString(e.KeyChar);
 
         }
-
-        private void txtEntrada_PreviewKeyDown(object sender, PreviewKeyDownEventArgs e)
-        {
-            
-        }
-
         private void txtEntrada_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
-                var matches = Regex.Matches(txtEntrada.Text, "[0-9]+");
-                //int lenght=Convert.ToInt32( Convert.ToString(matches));
-                int i = 0,j=0;
+                List<int> list = new List<int>();
+                var matches = Regex.Matches(txtEntrada.Text, "\\d+");
 
                 foreach (var march in matches)
                 {
-                    j++;
+                    list.Add(Convert.ToInt32((Convert.ToString(march))));
                 }
-                int[] valor = new int[j];
-                foreach (var march in matches)
+                for (int index =0; index<list.Count();index++)
                 {
-                    string hola = Convert.ToString(march);
-                    valor[i] = Convert.ToInt32(hola);
-                    i++;
+                    switch (list.ElementAt(index))
+                    {
+                        case 1:
+                            {
+                                torti._Dibujar = true;
+                                MostrarEstados();
+                                break;
+                            }
+                        case 2:
+                            {
+                                torti._Dibujar = false;
+                                MostrarEstados();
+                                break;
+                            }
+                        case 3:
+                            {
+                                torti.GirarDerecha();
+                                MostrarEstados();
+                                break;
+                            }
+                        case 4:
+                            {
+                                torti.GirarIzquierda();
+                                MostrarEstados();
+                                break;
+                            }
+                        case 5:
+                            {
+                                torti.caminar(list.ElementAt(index+1));
+                                index++;
+                                break;
+                            }
+                        case 6:
+                            {
+                                lblMatriz.Text = torti.ToString();
+                                break;
+                            }
+                        case 7:
+                            {
+                                goto FINAL;
+                            }
+                    }
+                    FINAL:;
                 }
-                switch (valor[0])
-                {
-                    case 1:
-                        {
-                            torti._Dibujar=true;
-                            break;
-                        }
-                    case 2:
-                        {
-                            torti._Dibujar = false;
-                            break;
-                        }
-                    case 3:
-                        {
-                            torti.GirarDerecha();
-                            break;
-                        }
-                    case 4:
-                        {
-                            torti.GirarIzquierda();
-                            break;
-                        }
-                    case 5:
-                        {
-                            torti.caminar(valor[1]);
-                            break;
-                        }
-                    case 6:
-                        {
-                            lblMatriz.Text=torti.ToString();
-                            break;
-                        }
-                    case 7:
-                        {
-                            break;
-                        }
-                }
-            }   
+                    list.Clear();
+            }
+        }
+        public void MostrarEstados()
+        {
+            lblPlumaEstate.Text = torti._Dibujar.ToString();
+            lblVistaTortuga.Text = "La tortuga mira hacia: " + torti.Girar;
         }
     }
 }

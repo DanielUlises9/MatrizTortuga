@@ -37,17 +37,24 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblPlumaEstate = new System.Windows.Forms.Label();
+            this.lblVistaTortuga = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblMatriz
             // 
             this.lblMatriz.Font = new System.Drawing.Font("Comic Sans MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMatriz.Location = new System.Drawing.Point(12, 9);
+            this.lblMatriz.Location = new System.Drawing.Point(108, 33);
             this.lblMatriz.Name = "lblMatriz";
-            this.lblMatriz.Size = new System.Drawing.Size(432, 394);
+            this.lblMatriz.Size = new System.Drawing.Size(289, 385);
             this.lblMatriz.TabIndex = 0;
             this.lblMatriz.Text = "Matriz";
-            this.lblMatriz.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtEntrada
             // 
@@ -127,11 +134,97 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "7 Fin de datos (centinela)";
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(763, 9);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 26);
+            this.label8.TabIndex = 9;
+            this.label8.Text = "Ejemplo";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(763, 47);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(160, 26);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "5,5,3,5,5,3,5,5,6";
+            // 
+            // lblPlumaEstate
+            // 
+            this.lblPlumaEstate.AutoSize = true;
+            this.lblPlumaEstate.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlumaEstate.Location = new System.Drawing.Point(461, 273);
+            this.lblPlumaEstate.Name = "lblPlumaEstate";
+            this.lblPlumaEstate.Size = new System.Drawing.Size(0, 26);
+            this.lblPlumaEstate.TabIndex = 11;
+            // 
+            // lblVistaTortuga
+            // 
+            this.lblVistaTortuga.AutoSize = true;
+            this.lblVistaTortuga.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblVistaTortuga.Location = new System.Drawing.Point(461, 299);
+            this.lblVistaTortuga.Name = "lblVistaTortuga";
+            this.lblVistaTortuga.Size = new System.Drawing.Size(0, 26);
+            this.lblVistaTortuga.TabIndex = 12;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(171, 9);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(24, 26);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(78, 170);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(24, 26);
+            this.label11.TabIndex = 14;
+            this.label11.Text = "3";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(271, 170);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(21, 26);
+            this.label12.TabIndex = 15;
+            this.label12.Text = "1";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Comic Sans MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(171, 392);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(24, 26);
+            this.label13.TabIndex = 16;
+            this.label13.Text = "2";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1036, 412);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblVistaTortuga);
+            this.Controls.Add(this.lblPlumaEstate);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -160,6 +253,14 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblPlumaEstate;
+        private System.Windows.Forms.Label lblVistaTortuga;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
     }
 }
 
