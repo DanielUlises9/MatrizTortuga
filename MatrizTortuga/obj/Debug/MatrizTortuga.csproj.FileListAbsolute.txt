@@ -1,0 +1,10 @@
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\bin\Debug\MatrizTortuga.exe.config
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\bin\Debug\MatrizTortuga.exe
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\bin\Debug\MatrizTortuga.pdb
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\obj\Debug\MatrizTortuga.csprojResolveAssemblyReference.cache
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\obj\Debug\MatrizTortuga.Form1.resources
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\obj\Debug\MatrizTortuga.Properties.Resources.resources
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\obj\Debug\MatrizTortuga.csproj.GenerateResource.cache
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\obj\Debug\MatrizTortuga.csproj.CoreCompileInputs.cache
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\obj\Debug\MatrizTortuga.exe
+C:\Users\danie\source\repos\MatrizTortuga\MatrizTortuga\obj\Debug\MatrizTortuga.pdb
